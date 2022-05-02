@@ -10,9 +10,12 @@
 let font
 let instructions
 
+let parser
+let vmCode
 
 function preload() {
     font = loadFont('data/consola.ttf')
+    vmCode = loadStrings('vm/SimpleAdd.vm')
 }
 
 
@@ -28,6 +31,7 @@ function setup() {
         [] → 🐳🥝
         z → freeze sketch</pre>`)
 
+    parser = new Parser(vmCode)
     noLoop()
 }
 

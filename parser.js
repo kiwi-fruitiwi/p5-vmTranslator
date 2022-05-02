@@ -27,9 +27,19 @@ class Command {
  */
 class Parser {
     /** opens the file and parses it, storing a copy of the information */
-    constructor() {
+    constructor(vmCommandsArray) {
         this.currentCommand = null
+        this.lines = vmCommandsArray
+        this.commandIndex = -1  /* advance() once to 'start' at index 0 */
 
+        for (let line of this.lines) {
+            console.log(line)
+        }
+    }
+
+    /** returns the current command  */
+    command() {
+        return this.currentCommand
     }
 
     /** returns true if there are more commands in the input */
